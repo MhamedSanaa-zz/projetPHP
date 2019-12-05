@@ -86,6 +86,17 @@
     width:170px;
     margin : 20px auto 5px;
 }
+#triangle{
+    border-left: 65px solid transparent;
+    border-right: 65px solid transparent;
+    border-top: 36.6px solid #ea5b31;
+    filter: drop-shadow(0 2px 4px rgba(22,22,24,.25));
+    position: absolute;
+    right: calc(50% - 65px);
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
 #footer
 {
     background: #333;
