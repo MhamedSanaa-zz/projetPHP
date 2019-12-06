@@ -24,7 +24,7 @@
          {
             $req=$this->connexion->prepare("INSERT INTO customer VALUES (null, :name , :email , :pwd , :phone, :address)");
             
-            $req->bindParam(':firstname',$name);
+            $req->bindParam(':name',$name);
             $req->bindParam(':address',$address);
             $req->bindParam(':email',$email);
             $req->bindParam(':phone',$phone);
