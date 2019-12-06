@@ -13,7 +13,7 @@
     <div class="container">
         <fieldset>
             <legend>REGISTERATION</legend>
-            <form action="verif.php" method="post">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
