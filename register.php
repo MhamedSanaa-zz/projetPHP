@@ -1,5 +1,9 @@
 <?php
+    session_start();
     include 'customer.class.php';
+    if(isset($_SESSION['name'])!="") {
+        header("Location: inde.html");
+    }
     if (isset($_POST['register'])) {
         $name = $_POST['name'];
         $phone = $_POST['phone'];
@@ -32,6 +36,7 @@
         $customer = new customer;
         $hashed_password = password_hash($pwd, PASSWORD_DEFAULT);
         $customer->customerReg($name,$email,$hashed_password,$phone,$address);
+        header('Location:login.php');
         exit();
     }
     error:

@@ -35,5 +35,21 @@
                 echo $e->getMessage();
              }
          }
+        public function login($email, $pwd)
+        {
+            try {
+                $req = $this->pdo->prepare("SELECT * FROM customer WHERE email= :email");
+                $req->bindparam(":email", $email);
+                $req->execute();
+                $customer = $req->fetch();
+                if (password_verify($pwd, $customer['pwd'])) {
+                    return $customer;
+                } else {
+                    return false;
+                }
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+        }
     }
 ?>
