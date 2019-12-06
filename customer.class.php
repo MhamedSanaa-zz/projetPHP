@@ -12,7 +12,7 @@
         public function readunique()
          {
              try {
-                $req=$this->connexion->prepare('SELECT * FROM foodorder where Cid= :param_id');
+                $req=$this->connexion->prepare('SELECT * FROM customer where Cid= :param_id');
                 $req->bindParam(':param_id',$_GET['Cid']);
                 $req->execute();
                 return $req;
@@ -20,12 +20,12 @@
                  echo $e->getMessage();
              }
          }
-         public function customerReg($name,$email,$pwd,$phone,$adress)
+         public function customerReg($name,$email,$pwd,$phone,$address)
          {
-            $req=$this->connexion->prepare("INSERT INTO students VALUES (null, :name , :email , :pwd , :phone, :adress)");
+            $req=$this->connexion->prepare("INSERT INTO customer VALUES (null, :name , :email , :pwd , :phone, :address)");
             
             $req->bindParam(':firstname',$name);
-            $req->bindParam(':adresse',$adresse);
+            $req->bindParam(':address',$address);
             $req->bindParam(':email',$email);
             $req->bindParam(':phone',$phone);
             $req->bindParam(':pwd',$pwd);
@@ -49,13 +49,6 @@
             $req->bindParam(':id',$id);
             $req->execute();
             header('Location:index.php?alerte=edit');
-         }
-         public function deletestd()
-         {
-            $req=$this->cnx->prepare("DELETE FROM students where id=:id");
-            $req->bindParam(':id',$_GET['id']);
-            $req->execute();
-            header('Location:index.php?alerte=delete');
          }
     }
 ?>
