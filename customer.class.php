@@ -38,7 +38,7 @@
         public function login($email, $pwd)
         {
             try {
-                $req = $this->pdo->prepare("SELECT * FROM customer WHERE email= :email");
+                $req = $this->connexion->prepare("SELECT * FROM customer WHERE email= :email");
                 $req->bindparam(":email", $email);
                 $req->execute();
                 $customer = $req->fetch();
@@ -52,4 +52,3 @@
             }
         }
     }
-?>

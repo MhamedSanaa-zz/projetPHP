@@ -41,4 +41,3 @@
     }
     error:
     include 'register.phtml';
-?>

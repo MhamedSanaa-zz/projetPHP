@@ -2,7 +2,7 @@
     session_start();
     include 'customer.class.php';
 
-    if(isset($_SESSION['Name'])!="") {
+    if(isset($_SESSION['name'])!="") {
         header("Location: inde.html");
     }
 
@@ -21,7 +21,7 @@
         }
         
         $customer = new customer;
-        $auth = $customer->login($email, $password);
+        $auth = $customer->login($email, $pwd);
         if($auth === false)
         {
             $auth_error = 'Incorrect Email or Password!!!';
@@ -34,4 +34,3 @@
     }
     error:
     include 'login.phtml';
-?>
