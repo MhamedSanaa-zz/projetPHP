@@ -1,5 +1,5 @@
 <?php
-    include 'classes/customer.class.php';
+    include 'customer.class.php';
 
     if (isset($_POST['register'])) {
         $name = $_POST['name'];
