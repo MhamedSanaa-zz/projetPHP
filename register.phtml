@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href=".\css\bootstrap.css">
+    <script src="https://kit.fontawesome.com/7f1324c4ec.js" crossorigin="anonymous"></script>
+    <script src=".\js\bootstrap.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <fieldset>
+            <legend>REGISTERATION</legend>
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="fn">Name</label>
+                            <input type="text" class="form-control" name="name">
+                            <span class="text-danger"><?php if (isset($name_error)) echo $name_error; ?></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="ln">Phone</label>
+                            <input type="text" class="form-control" name="phone">
+                            <span class="text-danger"><?php if (isset($phone_error)) echo $phone_error; ?></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="email">Adresse</label>
+                            <input type="email" class="form-control" name="adress">
+                        </div>
+                    </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" class="form-control" name="email">
+                            <span class="text-danger"><?php if (isset($email_error)) echo $email_error; ?></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="ph">Password</label>
+                            <input type="text" class="form-control" name="pwd">
+                            <span class="text-danger"><?php if (isset($pwd_error)) echo $pwd_error; ?></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="ph">Confirme password</label>
+                            <input type="text" class="form-control" name="conpwd">
+                            <span class="text-danger"><?php if (isset($pwd_error)) echo $pwd_error; ?></span>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-outline-success"><i class="fas fa-check" name="register"></i> Create</button>
+                <button type="reset" class="btn btn-outline-danger"><i class="fas fa-redo-alt"></i> Reset</button>
+            </form>
+        </fieldset>
+    </div>
+</body>
+</html>
