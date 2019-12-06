@@ -36,5 +36,5 @@
         exit();
     }
     error:
-    include 'register.phtml';
+    /*include 'register.phtml';*/
 ?>
