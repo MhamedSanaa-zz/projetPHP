@@ -20,7 +20,6 @@
             $email_error = "Please Enter Valid Email";
             goto error;
         }
-
         if(strlen($pwd) < 6) {
             $pwd_error = "Password must be minimum of 6 characters";
             goto error;
