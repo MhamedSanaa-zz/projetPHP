@@ -22,15 +22,18 @@
          }
          public function customerReg($name,$email,$pwd,$phone,$address)
          {
-            $req=$this->connexion->prepare("INSERT INTO customer VALUES (null, :name , :email , :pwd , :phone, :address)");
-            
-            $req->bindParam(':name',$name);
-            $req->bindParam(':address',$address);
-            $req->bindParam(':email',$email);
-            $req->bindParam(':phone',$phone);
-            $req->bindParam(':pwd',$pwd);
-            
-            $req->execute();
+             try {
+                $req=$this->connexion->prepare("INSERT INTO customer VALUES (null, :name , :email , :pwd , :phone, :address)");
+                $req->bindParam(':name',$name);
+                $req->bindParam(':address',$address);
+                $req->bindParam(':email',$email);
+                $req->bindParam(':phone',$phone);
+                $req->bindParam(':pwd',$pwd);
+                $req->execute();
+                return req;
+             } catch (Exeption $e) {
+                echo $ex->getMessage();
+             }
          }
          public function updatestds()
          {
