@@ -9,7 +9,7 @@
            $DB = new database;
            $this->connnexion = $DB->connectdb();
         }
-        public function readunique()
+        /*public function readunique()
          {
              try {
                 $req=$this->connexion->prepare('SELECT * FROM customer where Cid= :param_id');
@@ -19,20 +19,20 @@
              } catch (Exeption $e) {
                  echo $e->getMessage();
              }
-         }
+         }*/
          public function customerReg($name,$email,$pwd,$phone,$address)
          {
              try {
-                $req=$this->connexion->prepare("INSERT INTO customer VALUES (null, :name , :email , :pwd , :phone, :address)");
+                $req=$this->connexion->prepare("INSERT INTO customer(name,email,pwd,phone,address) VALUES (:name , :email , :pwd , :phone, :address)");
                 $req->bindParam(':name',$name);
-                $req->bindParam(':address',$address);
                 $req->bindParam(':email',$email);
-                $req->bindParam(':phone',$phone);
                 $req->bindParam(':pwd',$pwd);
+                $req->bindParam(':phone',$phone);
+                $req->bindParam(':address',$address);
                 $req->execute();
-                return req;
+                return $req;
              } catch (Exeption $e) {
-                echo $ex->getMessage();
+                echo $e->getMessage();
              }
          }
     }
