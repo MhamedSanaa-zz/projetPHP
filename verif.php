@@ -13,7 +13,7 @@
             goto error;
         }
         if (!preg_match("/^[0-9]+$/",$phone)) {
-            $phone_error = "Name must contain only numbers";
+            $phone_error = "phone must contains only numbers";
             goto error;
         }
         if(!filter_var($email,FILTER_VALIDATE_EMAIL)) {
@@ -33,8 +33,8 @@
         $customer = new customer;
         $hashed_password = password_hash($pwd, PASSWORD_DEFAULT);
         $customer->customerReg($name,$email,$hashed_password,$phone,$address);
-        header('Location:login.php');
         exit();
     }
     error:
     include 'register.phtml';
+?>
