@@ -1,10 +1,9 @@
 <?php
     include 'customer.class.php';
-
     if (isset($_POST['register'])) {
         $name = $_POST['name'];
         $phone = $_POST['phone'];
-        $adress = $_POST['adress'];
+        $address = $_POST['address'];
         $email = $_POST['email'];
         $pwd = $_POST['pwd'];
         $conpwd = $_POST['conpwd'];
@@ -33,7 +32,7 @@
 
         $customer = new customer;
         $hashed_password = password_hash($pwd, PASSWORD_DEFAULT);
-        $customer->customerReg($name,$email,$hashed_password,$phone,$adress);
+        $customer->customerReg($name,$email,$hashed_password,$phone,$address);
         header('Location:login.php');
         exit();
     }
