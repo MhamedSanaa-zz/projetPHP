@@ -46,7 +46,7 @@
         public function edit($name, $email, $pwd,$phone,$address,$id)
         {
             try {
-                echo $name
+                echo $name;
                 echo $email;
                 echo $pwd;
                 echo $phone;
