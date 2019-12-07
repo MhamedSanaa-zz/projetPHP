@@ -4,7 +4,7 @@
     include 'classes/customer.class.php';
 
     if(isset($_SESSION['name'])!="") {
-        header("Location: inde.html");
+        header("Location: customdashboard.phtml");
     }
 
     if (isset($_POST['login'])) {
@@ -30,9 +30,8 @@
             session_start();
             $_SESSION['name'] = $auth['name'];
             $_SESSION['email'] = $auth['email'];
-            header("Location: inde.php");
+            header("Location: customdashbord.phtml");
         }
     }
-    
     error:
     include 'login.phtml';

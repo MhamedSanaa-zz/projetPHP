@@ -2,7 +2,7 @@
     session_start();
     include 'classes/customer.class.php';
     if(isset($_SESSION['name'])!="") {
-        header("Location: inde.html");
+        header("Location: customdashboard.phtml");
     }
     if (isset($_POST['signup'])) {
         $name = $_POST['name'];
