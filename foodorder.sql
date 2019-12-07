@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Dec 03, 2019 at 03:47 PM
--- Server version: 10.4.10-MariaDB
--- PHP Version: 7.3.12
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  sam. 07 déc. 2019 à 20:43
+-- Version du serveur :  5.7.26
+-- Version de PHP :  7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `foodorder`
+-- Base de données :  `foodorder`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cart`
+-- Structure de la table `cart`
 --
 
 DROP TABLE IF EXISTS `cart`;
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customer`
+-- Structure de la table `customer`
 --
 
 DROP TABLE IF EXISTS `customer`;
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `cid` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `pwd` varchar(30) NOT NULL,
+  `pwd` varchar(300) NOT NULL,
   `phone` int(11) NOT NULL,
   `address` text NOT NULL,
   PRIMARY KEY (`cid`)
@@ -60,23 +60,23 @@ CREATE TABLE IF NOT EXISTS `customer` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employee`
+-- Structure de la table `employee`
 --
 
 DROP TABLE IF EXISTS `employee`;
 CREATE TABLE IF NOT EXISTS `employee` (
   `eid` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
-  `phno` int(15) NOT NULL,
+  `phone` int(15) NOT NULL,
   `email` varchar(32) NOT NULL,
-  `password` varchar(32) NOT NULL,
+  `pwd` varchar(300) NOT NULL,
   PRIMARY KEY (`eid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Structure de la table `orders`
 --
 
 DROP TABLE IF EXISTS `orders`;
@@ -84,20 +84,20 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `oid` int(11) NOT NULL AUTO_INCREMENT,
   `pid` int(11) NOT NULL,
   `cid` int(11) NOT NULL,
+  `vid` int(11) NOT NULL,
   `quantity` int(25) NOT NULL,
   `odate` date NOT NULL,
-  `quantityordered` int(11) NOT NULL,
-  `delivery status` tinyint(1) NOT NULL,
-  `vehicle` int(11) NOT NULL,
+  `deliverystatus` tinyint(1) NOT NULL,
   PRIMARY KEY (`oid`),
   KEY `FK_pid` (`pid`),
-  KEY `FK_cid` (`cid`)
+  KEY `FK_cid` (`cid`),
+  KEY `vid` (`vid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Structure de la table `products`
 --
 
 DROP TABLE IF EXISTS `products`;
@@ -113,34 +113,35 @@ CREATE TABLE IF NOT EXISTS `products` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `vehicle`
+-- Structure de la table `vehicle`
 --
 
 DROP TABLE IF EXISTS `vehicle`;
 CREATE TABLE IF NOT EXISTS `vehicle` (
   `vid` int(11) NOT NULL AUTO_INCREMENT,
   `status` int(11) NOT NULL,
-  `vehicle number` varchar(30) NOT NULL,
+  `vehiclenumber` varchar(30) NOT NULL,
   PRIMARY KEY (`vid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `cart`
+-- Contraintes pour la table `cart`
 --
 ALTER TABLE `cart`
   ADD CONSTRAINT `FK_cid_cart` FOREIGN KEY (`cid`) REFERENCES `customer` (`cid`),
   ADD CONSTRAINT `FK_pid_cart` FOREIGN KEY (`pid`) REFERENCES `products` (`pid`);
 
 --
--- Constraints for table `orders`
+-- Contraintes pour la table `orders`
 --
 ALTER TABLE `orders`
   ADD CONSTRAINT `FK_cid` FOREIGN KEY (`cid`) REFERENCES `customer` (`cid`),
-  ADD CONSTRAINT `FK_pid` FOREIGN KEY (`pid`) REFERENCES `products` (`pid`);
+  ADD CONSTRAINT `FK_pid` FOREIGN KEY (`pid`) REFERENCES `products` (`pid`),
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`vid`) REFERENCES `vehicle` (`vid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
