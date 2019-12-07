@@ -17,28 +17,26 @@
     include 'classes/customer.class.php';
     ?>
     <div class="container">
-        <div>
-            <span>
+        <div class="form-group">
+            <span class="form-control">
                 <?php echo $_SESSION['name']?>
             </span>
-            <span>
+            <span class="form-control">
                 <?php echo $_SESSION['phone']?>
             </span>
         </div>
-        <div>
-            <span>
+        <div class="form-group">
+            <span class="form-control">
                 <?php echo $_SESSION['address']?>
             </span>
         </div>
-        <div>
-            <span>
+        <div class="form-group">
+            <span class="form-control">
                 <?php echo $_SESSION['email']?>
             </span>
         </div>
-        <div>
-            <label for=""></label>
+        <div class="form-group">
             <button><a href="editcustom.php">edit</a></button>
-
         </div>
     </div>
 </body>
