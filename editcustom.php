@@ -7,12 +7,13 @@
         $phone = $_POST['phone'];
         $address = $_POST['address'];
         $email = $_POST['email'];
-
+        $pwd = $_POST['pwd'];
+        $conpwd = $_POST['conpwd'];
         if ($_POST['pwd']=='' && $_POST['conpwd']=='') {
             $pwd = $_SESSION['pwd'];
             $conpwd = $_SESSION['pwd'];
         }
-        else{
+        else if ($_POST['pwd']!='' || $_POST['conpwd']!='') {
             $pwd = $_POST['pwd'];
             $conpwd = $_POST['conpwd'];
             if(strlen($pwd) < 6) {
@@ -23,9 +24,7 @@
                 $conpwd_error = "Password confirmation doesn't match";
                 goto error;
             }
-            $hashed_pwd = password_hash($pwd, PASSWORD_DEFAULT);
         }
-
         if (!preg_match("/^[a-zA-Z ]+$/",$name)) {
             $name_error = "Name must contain only letters and space";
             goto error;
@@ -33,6 +32,10 @@
         if(!filter_var($email,FILTER_VALIDATE_EMAIL)) {
             $email_error = "Please Enter Valid Email";
             goto error;
+        }
+        
+        if ($pwd!=$_SESSION['pwd']) {
+            $hashed_pwd = password_hash($pwd, PASSWORD_DEFAULT);
         }
 
         $customer = new customer;
