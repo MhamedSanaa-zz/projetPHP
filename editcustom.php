@@ -1,16 +1,21 @@
 <?php
     session_start();
     include 'classes/customer.class.php';
-    if(isset($_SESSION['name'])!="") {
-        header("Location: customdashboard.php");
-    }
-    if (isset($_POST['signup'])) {
-        $name = $_POST['name'];
+    
+    if (isset($_POST['edit'])) {
+        $name=$_POST['name'];
         $phone = $_POST['phone'];
         $address = $_POST['address'];
         $email = $_POST['email'];
-        $pwd = $_POST['pwd'];
-        $conpwd = $_POST['conpwd'];
+        if ($_POST['pwd']==''/*&&$_POST['conpwd']==''*/) {
+            $pwd = $_SESSION['pwd'];
+            $conpwd = $_SESSION['pwd'];
+        }
+        else {
+            $pwd = $_POST['pwd'];
+            $conpwd = $_POST['conpwd'];
+        }
+        
 
         if (!preg_match("/^[a-zA-Z ]+$/",$name)) {
             $name_error = "Name must contain only letters and space";
@@ -31,9 +36,12 @@
 
         $customer = new customer;
         $hashed_pwd = password_hash($pwd, PASSWORD_DEFAULT);
-        $customer->register($name, $email, $hashed_pwd ,$phone,$address);
+        $customer->edit($name, $email, $hashed_pwd ,$phone,$address,$_SESSION['cid']);
+        session_destroy();
+        unset($_SESSION['name']);
+        unset($_SESSION['email']);
         header('Location:login.php');
         exit();
     }
     error:
-    include 'register.phtml';
+    include 'editcustom.phtml';

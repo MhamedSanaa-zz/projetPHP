@@ -4,7 +4,7 @@
     include 'classes/customer.class.php';
 
     if(isset($_SESSION['name'])!="") {
-        header("Location: customdashboard.phtml");
+        header("Location: customdashboard.php");
     }
 
     if (isset($_POST['login'])) {
@@ -34,7 +34,7 @@
             $_SESSION['email'] = $auth['email'];
             $_SESSION['cid'] = $auth['cid'];
             $_SESSION['pwd'] = $auth['pwd'];
-            header("Location: customdashboard.phtml");
+            header("Location: customdashboard.php");
         }
     }
     error:

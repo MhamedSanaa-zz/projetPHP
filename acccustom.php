@@ -23,7 +23,7 @@
 </head>
 <body>
     <?php
-    include 'customer.class.php';
+    include 'classes/customer.class.php';
     ?>
     <div class="container">
         <div>
@@ -46,7 +46,7 @@
         </div>
         <div>
             <label for=""></label>
-            <button href="edit.php">edit</button>
+            <button><a href="edit.phtml">edit</a></button>
 
         </div>
     </div>
