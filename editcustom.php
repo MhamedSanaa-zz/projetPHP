@@ -46,8 +46,8 @@
         session_destroy();
         unset($_SESSION['name']);
         unset($_SESSION['email']);
-        header('Location:login.php');
-        exit();
+        /*header('Location:login.php');*/
+        /*exit();*/
     }
     error:
     include 'editcustom.phtml';
