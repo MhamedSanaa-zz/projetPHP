@@ -41,8 +41,7 @@
         }
 
         $customer = new customer;
-        $hashed_pwd = password_hash($pwd, PASSWORD_DEFAULT);
-        $customer->edit($name, $email, $hashed_pwd ,$phone,$address,$_SESSION['cid']);
+        $customer->edit($name, $email, $pwd ,$phone,$address,$_SESSION['cid']);
         session_destroy();
         unset($_SESSION['name']);
         unset($_SESSION['email']);
