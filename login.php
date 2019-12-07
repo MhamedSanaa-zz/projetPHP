@@ -1,6 +1,7 @@
 <?php
     session_start();
-    include 'customer.class.php';
+
+    include 'classes/customer.class.php';
 
     if(isset($_SESSION['name'])!="") {
         header("Location: inde.html");
@@ -32,5 +33,6 @@
             header("Location: inde.php");
         }
     }
+    
     error:
     include 'login.phtml';
