@@ -30,7 +30,7 @@
         }
 
         $customer = new customer;
-        $hashed_pwd = pwd_hash($pwd, PASSWORD_DEFAULT);
+        $hashed_pwd = password_hash($pwd, PASSWORD_DEFAULT);
         $customer->register($name, $email, $hashed_pwd ,$phone,$address);
         header('Location:login.php');
         exit();
