@@ -46,7 +46,13 @@
         public function edit($name, $email, $pwd,$phone,$address,$id)
         {
             try {
-                $sql = "UPDATE customer SET name=:name, email=:email ,pwd=:pwd, phone=:phone,address=:address WHERE cid=:id";
+                echo $name
+                echo $email;
+                echo $pwd;
+                echo $phone;
+                echo $address;
+                echo $id;
+                $sql = "UPD;ATE customer SET name=:name, email=:email ,pwd=:pwd, phone=:phone,address=:address WHERE cid=:id";
                 $query = $this->pdo->prepare($sql);
                 $query->bindparam(":email", $email);
                 $query->bindparam(":name", $name);
@@ -56,7 +62,6 @@
                 $query->bindparam(":id", $id);
                 $query->execute();
                 return $query;
-                header('Location:logout.php');
             } catch (PDOException $ex) {
                 echo $ex->getMessage();
             }

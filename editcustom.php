@@ -1,13 +1,13 @@
 <?php
     session_start();
     include 'classes/customer.class.php';
-    echo $_SESSION['cid'] = $auth['cid'];
-    echo $_SESSION['name'] = $auth['name'];
-    echo $_SESSION['phone'] = $auth['phone'];
-    echo $_SESSION['address'] = $auth['address'];;
-    echo $_SESSION['email'] = $auth['email'];
-    echo $_SESSION['pwd'] = $auth['pwd'];
-    
+    echo $_SESSION['cid'];
+    echo $_SESSION['name'];
+    echo $_SESSION['phone'];
+    echo $_SESSION['address'];
+    echo $_SESSION['email'];
+    echo $_SESSION['pwd'];
+
     if (isset($_POST['edit'])) {
         $name=$_POST['name'];
         $phone = $_POST['phone'];
