@@ -46,12 +46,6 @@
         public function edit($name, $email, $pwd,$phone,$address,$id)
         {
             try {
-                echo $name;
-                echo $email;
-                echo $pwd;
-                echo $phone;
-                echo $address;
-                echo $id;
                 $sql = "UPDATE customer SET name=:name, email=:email ,pwd=:pwd, phone=:phone,address=:address WHERE cid=:id";
                 $query = $this->pdo->prepare($sql);
                 $query->bindparam(":email", $email);

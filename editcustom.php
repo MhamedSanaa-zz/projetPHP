@@ -1,12 +1,6 @@
 <?php
     session_start();
     include 'classes/customer.class.php';
-    echo $_SESSION['cid'];
-    echo $_SESSION['name'];
-    echo $_SESSION['phone'];
-    echo $_SESSION['address'];
-    echo $_SESSION['email'];
-    echo $_SESSION['pwd'];
 
     if (isset($_POST['edit'])) {
         $name=$_POST['name'];
@@ -43,10 +37,14 @@
         $customer = new customer;
         $customer->edit($name, $email, $pwd ,$phone,$address,$_SESSION['cid']);
         session_destroy();
+        unset($_SESSION['cid']);
         unset($_SESSION['name']);
+        unset($_SESSION['phone']);
+        unset($_SESSION['address']);
         unset($_SESSION['email']);
-        /*header('Location:login.php');*/
-        /*exit();*/
+        unset($_SESSION['pwd']);
+        header('Location:login.php');
+        exit();
     }
     error:
     include 'editcustom.phtml';
