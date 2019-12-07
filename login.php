@@ -29,7 +29,11 @@
         } else {
             session_start();
             $_SESSION['name'] = $auth['name'];
+            $_SESSION['phone'] = $auth['phone'];
+            $_SESSION['address'] = $auth['address'];
             $_SESSION['email'] = $auth['email'];
+            $_SESSION['cid'] = $auth['cid'];
+            $_SESSION['pwd'] = $auth['pwd'];
             header("Location: customdashboard.phtml");
         }
     }
