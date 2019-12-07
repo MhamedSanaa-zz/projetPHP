@@ -46,7 +46,7 @@
         </div>
         <div>
             <label for=""></label>
-            <button><a href="edit.phtml">edit</a></button>
+            <button><a href="editcustom.php">edit</a></button>
 
         </div>
     </div>
