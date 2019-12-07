@@ -30,7 +30,7 @@
             session_start();
             $_SESSION['name'] = $auth['name'];
             $_SESSION['email'] = $auth['email'];
-            header("Location: customdashbord.phtml");
+            header("Location: customdashboard.phtml");
         }
     }
     error:
