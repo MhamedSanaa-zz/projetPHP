@@ -52,7 +52,7 @@
                 echo $phone;
                 echo $address;
                 echo $id;
-                $sql = "UPD;ATE customer SET name=:name, email=:email ,pwd=:pwd, phone=:phone,address=:address WHERE cid=:id";
+                $sql = "UPDATE customer SET name=:name, email=:email ,pwd=:pwd, phone=:phone,address=:address WHERE cid=:id";
                 $query = $this->pdo->prepare($sql);
                 $query->bindparam(":email", $email);
                 $query->bindparam(":name", $name);
