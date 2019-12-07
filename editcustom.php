@@ -1,17 +1,23 @@
 <?php
     session_start();
     include 'classes/customer.class.php';
+    echo $_SESSION['cid'] = $auth['cid'];
+    echo $_SESSION['name'] = $auth['name'];
+    echo $_SESSION['phone'] = $auth['phone'];
+    echo $_SESSION['address'] = $auth['address'];;
+    echo $_SESSION['email'] = $auth['email'];
+    echo $_SESSION['pwd'] = $auth['pwd'];
     
     if (isset($_POST['edit'])) {
         $name=$_POST['name'];
         $phone = $_POST['phone'];
         $address = $_POST['address'];
         $email = $_POST['email'];
-        if ($_POST['pwd']==''/*&&$_POST['conpwd']==''*/) {
+        if ($_POST['pwd']=='' && $_POST['conpwd']=='') {
             $pwd = $_SESSION['pwd'];
             $conpwd = $_SESSION['pwd'];
         }
-        else {
+        else if ($_POST['pwd']!='' && $_POST['conpwd']!='') {
             $pwd = $_POST['pwd'];
             $conpwd = $_POST['conpwd'];
         }
