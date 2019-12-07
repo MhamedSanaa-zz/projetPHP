@@ -33,9 +33,12 @@
             $conpwd_error = "Password confirmation doesn't match";
             goto error;
         }
+        if ($pwd!=$_SESSION['pwd']) {
+            $hashed_pwd = password_hash($pwd, PASSWORD_DEFAULT);
+        }
 
         $customer = new customer;
-        $customer->edit($name, $email, $pwd ,$phone,$address,$_SESSION['cid']);
+        $customer->edit($name, $email, $hashed_pwd ,$phone,$address,$_SESSION['cid']);
         session_destroy();
         unset($_SESSION['cid']);
         unset($_SESSION['name']);
