@@ -1,0 +1,52 @@
+  
+<?php
+    session_start();
+    include 'classes/employee.class.php';
+    if (isset($_POST['edit'])) {
+        $name=$_POST['name'];
+        $phone = $_POST['phone'];
+        $address = $_POST['address'];
+        $email = $_POST['email'];
+        $pwd = $_POST['pwd'];
+        $conpwd = $_POST['conpwd'];
+        if ($_POST['pwd']=='' && $_POST['conpwd']=='') {
+            $pwd = $_SESSION['pwd'];
+            $conpwd = $_SESSION['pwd'];
+        }
+        else if ($_POST['pwd']!='' || $_POST['conpwd']!='') {
+            $pwd = $_POST['pwd'];
+            $conpwd = $_POST['conpwd'];
+            if(strlen($pwd) < 6) {
+                $pwd_error = "Password must be minimum of 6 characters";
+                goto error;
+            }
+            if($pwd != $conpwd) {
+                $conpwd_error = "Password confirmation doesn't match";
+                goto error;
+            }
+        }
+        if (!preg_match("/^[a-zA-Z ]+$/",$name)) {
+            $name_error = "Name must contain only letters and space";
+            goto error;
+        }
+        if(!filter_var($email,FILTER_VALIDATE_EMAIL)) {
+            $email_error = "Please Enter Valid Email";
+            goto error;
+        }
+        
+        if ($pwd!=$_SESSION['pwd']) {
+            $hashed_pwd = password_hash($pwd, PASSWORD_DEFAULT);
+        }
+        $employee = new employee;
+        $employee->edit($_SESSION['eid'],$name,$phone,$email,$hashed_pwd);
+        session_destroy();
+        unset($_SESSION['eid']);
+        unset($_SESSION['name']);
+        unset($_SESSION['phone']);
+        unset($_SESSION['email']);
+        unset($_SESSION['pwd']);
+        header('Location:loginemplo.php');
+        exit();
+    }
+    error:
+    include 'editemplo.phtml';

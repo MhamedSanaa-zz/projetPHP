@@ -6,7 +6,6 @@
       private $user = 'root';
       private $pwd = '';
       public $conn=null;
-
       public function connectDB()
       {
          try { 

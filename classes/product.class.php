@@ -3,7 +3,6 @@ include 'DBconnexion.class.php';
 class product
 {
     private $pdo;
-
     public function __construct()
     {
         $dbconn = new DBConnection;
@@ -18,6 +17,5 @@ class product
        return $product=$result->fetchAll(PDO::FETCH_OBJ);
     }
        
-
 }
 ?>

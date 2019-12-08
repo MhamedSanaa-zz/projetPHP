@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href=".\css\bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/7f1324c4ec.js" crossorigin="anonymous"></script>
+    <script src=".\js\bootstrap.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <fieldset>
+            <legend>Modify Employee Account</legend>
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" name="name" value="<?=$_SESSION['name']?>">
+                    <span class="text-danger"><?php if (isset($name_error)) echo $name_error; ?></span>
+                </div>
+                <div class="form-group">
+                    <label for="phone">phone</label>
+                    <input type="tel" class="form-control" name="phone" value="<?=$_SESSION['phone']?>">
+                    <span class="text-danger"><?php if (isset($phone_error)) echo $phone_error; ?></span>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" class="form-control" name="email" value="<?=$_SESSION['email']?>">
+                    <span class="text-danger"><?php if (isset($email_error)) echo $email_error; ?></span>
+                </div>
+                <div class="form-group">
+                    <label for="pwd">New password</label>
+                    <input type="password" class="form-control" name="pwd">
+                    <span class="text-danger"><?php if (isset($pwd_error)) echo $pwd_error; ?></span>
+                </div>
+                <div class="form-group">
+                    <label for="conpwd">Confirm new password</label>
+                    <input type="password" class="form-control" name="conpwd">
+                    <span class="text-danger"><?php if (isset($conpwd_error)) echo $conpwd_error; ?></span>
+                </div>
+                <button type="submit" class="btn btn-outline-success" name="edit"><i class="fas fa-check"></i>Change</button>
+            </form>
+        </fieldset>
+    </div>
+</body>
+</html>
