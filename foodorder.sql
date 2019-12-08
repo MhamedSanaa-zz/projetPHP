@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 07 déc. 2019 à 20:43
+-- Généré le :  Dim 08 déc. 2019 à 19:07
 -- Version du serveur :  5.7.26
--- Version de PHP :  7.3.5
+-- Version de PHP :  7.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -108,7 +108,16 @@ CREATE TABLE IF NOT EXISTS `products` (
   `price` double(10,5) NOT NULL,
   `file` text NOT NULL,
   PRIMARY KEY (`pid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `products`
+--
+
+INSERT INTO `products` (`pid`, `name`, `description`, `price`, `file`) VALUES
+(1, 'chicken republic', '6 mouth watering Crunchy Wings served with an option of Crispy Chips, Rice & Beans, Spicy or Fried Rice and a refreshing Pet Drink', 8.00000, 'images/img1.jpg'),
+(2, 'Wrap star meal', 'Chicken Wrap with Freshly prepared Chips and a refreshing Pet Drink.', 9.00000, 'images/img2.jpg'),
+(3, ' crunchy meal', '2 mouth watering Pieces of Crunchy Fried Chicken served with an option of Crispy Chips, Rice & Beans, Spicy or Fried Rice and a refreshing Pet Drink\r\n\r\n', 12.00000, 'images/img3.jpg');
 
 -- --------------------------------------------------------
 
