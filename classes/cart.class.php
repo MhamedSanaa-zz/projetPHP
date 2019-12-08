@@ -3,7 +3,6 @@ include 'DBconnexion.class.php';
 class cart
 {
     private $pdo;
-
     public function __construct()
     {
         $dbconn = new DBConnection;
@@ -26,6 +25,5 @@ class cart
 }
       
        
-
 }
 ?>

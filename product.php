@@ -1,7 +1,6 @@
 <?php
 include 'product.phtml';
 $products_ids=array();
-
 if (filter_input(INPUT_POST,'add_cart'))
 {
   if(isset($_SESSION['shopping_cart']))
@@ -40,6 +39,4 @@ if (filter_input(INPUT_POST,'add_cart'))
     );
   }
 }
-
-
 ?>

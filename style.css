@@ -5,19 +5,16 @@
 /*-----------Nav------------*/
 #nav-bar
 {
+    text-transform: uppercase;
     position: sticky;
+    font-size: .9rem;
+    letter-spacing: .1rem;
     top: 0;
     z-index: 10 ;
  }
- .navbar-brand h
- {
-     height: 25px;
-     padding-left: 30px;
-     
- }
  .navbar-nav li
  {
-     padding: 0 10px;
+     padding-right: .7rem;
  }
  .navbar-nav li a
  {
@@ -26,7 +23,7 @@
  }
  #nav-bar ul li a:hover
  {
-   color: #007bff!important;  
+   color: #ea5b31!important;  
  }
  .navbar{
      background: #fff;
@@ -41,8 +38,9 @@
     font-weight: 600;
     font-size: 16px;
 }
-
-
+.navbar-brand img {
+ height: 2rem;
+}
 #c3 {
     background-image: url("8.jpg");
     background-size : cover ;
@@ -136,3 +134,46 @@
     background-color:#333!important ;
     
 }
+.map-container-section {
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+  }
+  .map-container-section iframe {
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+  }
+  .contactus {
+    background-color:#ea5b31 ;
+    background-size : cover ;
+    background-position : center;
+    background-attachment:fixed ;
+    padding-top :50px;
+    padding-bottom:50px;
+    
+}
+.contactus h1{
+    text-align:center; 
+    color :white;
+}
+body{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+ #mybtn {
+     background-color: #ea5b31;
+     color: white;
+ }
+ .container {
+    flex: 1;
+  }
+.prod-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;}
