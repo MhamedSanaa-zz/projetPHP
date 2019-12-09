@@ -30,7 +30,7 @@
         $employee = new employee;
         $hashed_pwd = password_hash($pwd, PASSWORD_DEFAULT);
         $employee->register($name,$phone,$email,$hashed_pwd);
-        header('Location:loginepmlo.php');
+        header('Location:loginemplo.php');
         exit();
     }
     error:
